@@ -22,11 +22,19 @@ setup_file() {
         export AWS_CREDENTIALS_BAK=$(mktemp -u -p ~/.aws bak.credentialsXXXXXX)
         cp ~/.aws/credentials ${AWS_CREDENTIALS_BAK}
     fi
-    echo "
+
+
+    if [ -n "${AWS_SANDBOX_ACCESS_KEY_ID}" -a -n "${AWS_SANDBOX_SECRET_ACCESS_KEY}" ]
+        >&3 echo "Creating aws credentials file with credentials from AWS_SANDBOX_ACCESS_KEY_ID and AWS_SANDBOX_SECRET_ACCESS_KEY"
+        echo "
 [spintools_aws]
 aws_access_key_id=${AWS_SANDBOX_ACCESS_KEY_ID}
 aws_secret_access_key=${AWS_SANDBOX_SECRET_ACCESS_KEY}
 " > ~/.aws/credentials
+    else
+        >&3 echo "Either AWS_SANDBOX_ACCESS_KEY_ID or AWS_SANDBOX_SECRET_ACCESS_KEY are not set"
+        exit 1
+    fi
 }
 
 
