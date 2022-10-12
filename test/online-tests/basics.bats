@@ -24,7 +24,7 @@ setup_file() {
     fi
 
 
-    if [ -n "${AWS_SANDBOX_ACCESS_KEY_ID}" -a -n "${AWS_SANDBOX_SECRET_ACCESS_KEY}" ]
+    if [ -n "${AWS_SANDBOX_ACCESS_KEY_ID}" -a -n "${AWS_SANDBOX_SECRET_ACCESS_KEY}" ] ; then
         >&3 echo "Creating aws credentials file with credentials from AWS_SANDBOX_ACCESS_KEY_ID and AWS_SANDBOX_SECRET_ACCESS_KEY"
         echo "
 [spintools_aws]
