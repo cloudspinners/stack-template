@@ -1,0 +1,11 @@
+.*
+!.gitignore
+!.github
+!.gitkeep
+!.tool-versions
+test/volume/*
+!test/volume/.gitkeep
+docker-compose.yml.dojo
+instance-spec.yml
+_work
+_tmp

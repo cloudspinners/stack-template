@@ -1,0 +1,41 @@
+#!/bin/bash
+
+set -euo pipefail
+
+if [ -z "${SPIN_TOOLS_VERSION:-}" ] ; then
+	>&2 echo "Not running in a spin docker image, run ./go instead"
+	exit 1
+fi
+
+USAGE="Usage: gojo [test|test-online]"
+
+
+if [ "$#" -eq 0 ] ; then
+    >&2  echo "No command given"
+    >&2  echo ${USAGE}
+    exit 1
+fi
+
+
+for arg in "$@"
+do
+	case "$arg" in
+	test|test-offline|offline-test|offline)
+		echo "Running offline tests"
+		time bats ./test/offline-tests
+		;;
+	test-online|online-test|online)
+		echo "Running online tests"
+		time bats ./test/online-tests
+		;;
+	help)
+	    >&2  echo ${USAGE}
+		;;
+	*)
+	    >&2  echo "Unknown command ${arg}"
+	    >&2  echo ${USAGE}
+	    exit 1
+		;;
+	esac
+done
+

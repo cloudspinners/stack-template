@@ -1,0 +1,16 @@
+---
+stack_instance:
+
+  stack_name: example-stack
+  instance_id: online-test
+
+  platform:
+    name: aws
+    parameters:
+      aws_region: us-east-2
+      aws_profile: spintools_aws
+
+  tool: 
+    name: terraform
+    backend:
+      name: local
