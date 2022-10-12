@@ -5,10 +5,11 @@ stack_instance:
   instance_id: offline-test
 
   platform:
-    name: aws
+    name: localstack
     parameters:
-      aws_region: us-east-2
-      aws_profile: spintools_aws
+      aws_region: us-east-1
+      access_key: test
+      secret_key: test
 
   tool: 
     name: terraform
