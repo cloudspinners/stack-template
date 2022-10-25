@@ -35,7 +35,7 @@ Run the `go` script on the host (not inside a running container) to manage dojo 
 
 Run the dojo command (having installed the prerequisites as explained above) to get a prompt with the spin-tools installed. Then you can run the `stack-spin` command to manage an instance of THIS_PROJECT infrastructure.
 
-Configure your infrastructure stack by either adding a file under `./instances`, or by making a file in the base folder named `./instance-spec.yml`. Copy the contents of `./instances/example-sandbox.yml` to play around. This stores terraform state locally, so is mainly useful for a single session (e.g. for developing and testing), rather than for managing persistent infrastructure.
+Configure your infrastructure stack by either adding a file under `./instances`, or by making a file in the base folder named `./my-instance.yml`. Copy the contents of `./instances/example-sandbox.yml` to play around. This stores terraform state locally, so is mainly useful for a single session (e.g. for developing and testing), rather than for managing persistent infrastructure.
 
 For persistent infrastructure, you can configure your instance to use terraform cloud:
 
